@@ -1,0 +1,430 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        th:content="${'Our salon takes pride in providing our valued customers all good services and customer service satisfaction. At ' + dataObj.info.salon.name + ', a wide choice is provided to customers, you can use any services that you like. All of our services are at decent prices, so there is no hesitation when you use one or even more services at our salon.'}">
+    <meta name="keyword"
+        th:content="@{${dataObj.info.salon.name + ', ' + dataObj.info.salon.name + ' in ' + dataObj.info.salon.state + ', nails salon near me, luxury nails, best nails color, nails spa, nails salon, nails bar, perfect nail, nails polish, gel polish, best nail color, nails spa near me, pedicure near me, nail bar near me'}}">
+    <meta name="author" th:content="@{${dataObj.info.salon.name + ' | Top Nails Salon in ' + dataObj.info.salon.state}}">
+    <title th:text="${dataObj.info.salon.name + ' | Top Nails Salon in ' + dataObj.info.salon.state}"></title>
+		
+        <!--font-family-->
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+		
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+		
+        <!-- for title img -->
+		<link rel="shortcut icon" type="image/icon" th:href="@{${template + '/images/' + folder + '/' + dataObj.info.others.favicon}}"/>
+		
+		<meta property="og:image" th:content="@{${template + '/images/'  + folder + '/' + dataObj.info.others.img_title}}">
+       
+        <!--font-awesome.min.css-->
+        <link rel="stylesheet" th:href="@{${template + '/css/font-awesome.min.css'}}">
+		
+		<!--linear icon css-->
+		<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+		
+		<!--animate.css-->
+        <link rel="stylesheet" th:href="@{${template + '/css/animate.css'}}">
+		
+		<!--hover.css-->
+        <link rel="stylesheet" th:href="@{${template + '/css/hover-min.css'}}">
+		
+		<!--vedio player css-->
+        <link rel="stylesheet" th:href="@{${template + '/css/magnific-popup.css'}}">
+
+		<!--owl.carousel.css-->
+        <link rel="stylesheet" th:href="@{${template + '/css/owl.carousel.min.css'}}">
+		<link th:href="@{${template + '/css/owl.theme.default.min.css'}}" rel="stylesheet"/>
+
+
+        <!--bootstrap.min.css-->
+        <link rel="stylesheet" th:href="@{${template + '/css/bootstrap.min.css'}}">
+		
+		<!-- bootsnav -->
+		<link th:href="@{${template + '/css/bootsnav.css'}}" rel="stylesheet"/>	
+        
+        <!--style.css-->
+        <!-- <link rel="stylesheet" th:href="@{${template + '/css/style.css'}}"> -->
+        
+      <!--  <link rel="stylesheet" th:href="@{${template + '/css/style.css'}}"> -->
+		
+        
+        <!--responsive.css-->
+        <link rel="stylesheet" th:href="@{${template + '/css/' + folder + '/responsive.css'}}">
+       <!--  <link rel="stylesheet" th:href="@{${template + '/css/' + folder + '/style.css'}}"> -->
+        <link rel="stylesheet" th:href="@{${template + '/css/' + folder + '/new-style.css'}}">
+        
+        <style>
+        	.single-slide-item.slide-1{
+        		background-image: url([[${template + '/images/' + folder + '/' + dataObj.banners[0].url}]]);
+        		position:relative;
+				z-index:1;
+        	}
+        	
+        	.single-slide-item.slide-2{
+        		background-image: url([[${template + '/images/' + folder + '/' + dataObj.banners[1].url}]]);
+        		position:relative;
+				z-index:1;
+        	}
+        	
+        	.about-part{
+				position:relative;
+				background:url([[${template + '/images/' + folder + '/' + dataObj.banners[2].url}]]);
+				background-position:center;
+				background-size:cover;
+				padding: 124px 0 144px;
+				z-index:1;
+			}
+        	
+        	.special1{
+        		background-image: url([[${template + '/images/' + folder + '/' + dataObj.speImages[0].url}]]);
+        	}
+        	.special2{
+        		background-image: url([[${template + '/images/' + folder + '/' + dataObj.speImages[1].url}]]);
+        	}
+        	.special3{
+        		background-image: url([[${template + '/images/' + folder + '/' + dataObj.speImages[2].url}]]);
+        	}
+        	.special4{
+        		background-image: url([[${template + '/images/' + folder + '/' + dataObj.speImages[3].url}]]);
+        	}
+        	
+        	.statistics{
+				position:relative;
+				background:url([[${template + '/images/' + folder + '/' + 'counter-banner.jpg'}]]');
+				background-repeat: no-repeat;
+				background-position:center;
+				background-size:cover;
+				padding: 98px 0 81px;
+			}
+			..contact {
+			    padding: 115px 0 120px;
+			    background:url([[${template + '/images/' + folder + '/' + dataObj.info.others.bg_specialties}]]);
+			    background-repeat: no-repeat;
+				background-position:center;
+				background-size: cover;
+				position: relative;
+			}
+        	
+        </style>
+
+    </head>
+	
+	<body>
+
+		
+		<!--header start-->
+		<section class="header">
+			<div class="container">	
+				<div class="header-left">
+					<ul class="pull-left">
+						<li>
+							<i class="fa fa-phone" aria-hidden="true"></i>
+							<a th:href="@{${'tel:+1' + dataObj.info.salon.phone}}" th:text="${dataObj.info.salon.phone}"></a>
+							<a th:if="${dataObj.info.salon.phone2 != ''}">/</a>
+							<a th:if="${dataObj.info.salon.phone2 != ''}" th:href="@{${'tel:+1' + dataObj.info.salon.phone}}" th:text="${dataObj.info.salon.phone}"></a>
+						</li>
+						<li>
+							<a href="#" th:if="${dataObj.info.salon.time_1 != ''}">
+								<i class="fa fa-clock-o" aria-hidden="true"></i><a th:text="${dataObj.info.salon.time_1}"></a>
+							</a>
+						</li>
+						<li>
+							<a href="#" th:if="${dataObj.info.salon.time_2 != ''}">
+								<i class="fa fa-clock-o" aria-hidden="true"></i><a th:text="${dataObj.info.salon.time_2}"></a>
+							</a>
+						</li>
+						<li>
+							<a href="#" th:if="${dataObj.info.salon.time_3 != ''}">
+								<i class="fa fa-clock-o" aria-hidden="true"></i><a th:text="${dataObj.info.salon.time_3}"></a>
+							</a>
+						</li>
+						
+					
+					</ul>
+				</div>
+				<div class="header-right pull-right"></div>
+			</div>
+		</section>
+		<!--header end-->
+		
+		<!--menu start-->
+		<section id="menu" class="w-100">
+			<div class="container">
+				<div class="menubar">
+					<nav class="navbar navbar-default">
+					
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="index">
+								<img class="logo-img" th:src="@{${template + '/images/' + folder + '/' + dataObj.info.others.logo_header}}" th:alt="${dataObj.info.salon.name}">
+							</a>
+						</div><!--/.navbar-header -->
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+								<li ><a href="index">Home</a></li>
+								<li><a href="about">About Us</a></li>
+								<li ><a href="services">Service</a></li>
+								<li class="active"><a href="gallery">Gallery</a></li>
+								<li><a th:href="${dataObj.info.social.booking}" target="_blank">Appointment</a></li>
+								<li><a href="contact">Contacts</a></li>
+							</ul><!-- / ul -->
+						</div><!-- /.navbar-collapse -->
+					</nav><!--/nav -->
+				</div><!--/.menubar -->
+			</div><!-- /.container -->
+
+		</section><!--/#menu-->
+		<!--menu end-->
+		
+		<!--about-part start-->
+		<section class="about-part slide-3">
+			<div class="container">
+				<div class="about-part-details text-center"> 
+					<h2>Gallery</h2>
+					<div class="about-part-content">
+						<div class="breadcrumbs">
+							<div class="container">
+								<ol class="breadcrumb">
+								  <li><a href="index">home</a><span>//</span></li>
+								  <li><a href="about">Gallery</a></li>
+								</ol><!--/.breadcrumb-->
+							</div><!--/.container-->
+						</div><!--/.breadcrumbs-->
+					</div><!--/.about-part-content-->
+				</div><!--/.about-part-details-->	
+			</div><!--/.container-->
+		</section><!--/.about-part-->
+		<!--about-part end-->
+
+		<!--project start-->
+		<section id="project"  class="project">
+			<div class="container">
+				<div class="project-details">
+					<div class="project-header text-left">
+						<h2>Gallery</h2>
+						<p>
+							Pallamco laboris nisi ut aliquip ex ea commodo consequat. 
+						</p>
+					</div><!--/.project-header-->
+					<div class="project-content">
+						<div class="gallery-content">
+							<div class="isotope">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="row">
+											<div class="col-sm-4 col-xs-12" th:each="gal : ${dataObj.gallery}">
+												<div class="item">
+													<img th:src="@{${template + '/images/' + folder + '/' + gal.url}}" alt="portfolio image"/>
+													<div class="isotope-overlay">
+														<a href="gallery">
+															<span class="lnr lnr-link"></span>
+															
+														</a>
+														<h3>
+															<a href="gallery" target="_blank" th:text="${dataObj.info.salon.name}">
+																Zombiz Nails
+															</a>
+														</h3>
+														<p>Make an Appointment</p>
+													</div><!-- /.isotope-overlay -->
+												</div><!-- /.item -->
+											</div><!-- /.col -->
+										</div><!-- /.row-->
+									</div><!-- /.col -->
+								</div><!-- /.row -->								
+							</div><!--/.isotope-->
+						</div><!--/.gallery-content-->
+					</div><!--/.project-content-->
+				</div><!--/.project-details-->
+				<!-- <div class="project-btn text-center">
+					<a href="gallery"  class="project-view">view all
+					</a>
+				</div>/.project-btn -->
+			</div><!--/.container-->
+
+		</section><!--/.project-->
+		<!--project end-->
+
+
+		<!-- new-project start -->
+		<section  id="new-project" class="new-project">
+				<div class="container">
+					<div class="new-project-details">
+						<div class="row">
+							<div class="col-md-10 col-sm-8">
+								<div class="single-new-project">
+									<h3>
+										Want to start a new nail with us, Let's go!
+									</h3>
+								</div><!-- /.single-new-project-->	
+							</div><!-- /.col-->	
+							<div class="col-md-2 col-sm-4">
+								<div class="single-new-project">
+									<a th:href="${dataObj.info.social.booking}" target="_blank" class="slide-btn">
+										BOOK NOW
+									</a>
+								</div><!-- /.single-new-project-->	
+							</div><!-- /.col-->	
+						</div><!-- /.row-->	
+					</div><!-- /.new-project-details-->	
+				</div><!-- /.container-->	
+
+		</section><!-- /.new-project-->	
+		<!-- new-project end -->
+		
+		<!--hm-footer start-->
+		<section class="hm-footer">
+			<div class="container">
+				<div class="hm-footer-details">
+					<div class="row">
+						<div class="col-md-4 col-sm-6 col-lg-12 pb-5">
+							<div class="hm-footer-widget">
+								<div class="hm-foot-title ">
+									<div class="logo">
+										<a href="index">
+											<img class="logo-footer" th:src="@{${template + '/images/' + folder + '/' + dataObj.info.others.logo_header}}" alt="logo" />
+										</a>
+									</div>
+								</div>
+								<div class="hm-foot-para span-f">
+									<span th:text="${dataObj.about[0].desc2}"></span><br>
+								</div>
+							</div>
+							<div class="hm-foot-title">
+								<h4>BUSINESS HOURS</h4>
+							</div>
+							<div class="hm-foot-para">
+								<ul>								
+									<li th:if="${dataObj.info.salon.day_left_1 != ''}">
+										<div class="row">
+											<div class="column-left pr-0 text-right span-f">
+												<span th:text="${dataObj.info.salon.day_left_1}"></span>
+											</div>
+											<div class="col-8 pl-2 text-left span-f">
+												<span th:text="${dataObj.info.salon.time_right_1}"></span>
+											</div>
+										</div>
+										<div class="row">
+											<div class="column-left pr-0 text-right span-f">
+												<span th:text="${dataObj.info.salon.day_left_2}"></span>
+											</div>
+											<div class="col-8 pl-2 text-left span-f">
+												<span th:text="${dataObj.info.salon.time_right_2}"></span>
+											</div>
+										</div>
+										<div class="row" th:if="${dataObj.info.salon.time_right_3 != ''}">
+											<div class="column-left pr-0 text-right span-f">
+												<span th:text="${dataObj.info.salon.day_left_3}"></span>
+											</div>
+											<div class="col-8 pl-2 text-left span-f">
+												<span th:text="${dataObj.info.salon.time_right_3}"></span>
+											</div>
+										</div>
+									</li>
+								</ul>  
+							</div>
+						</div>
+						<div class=" col-md-3 col-sm-6 col-lg-12">
+							<div class="hm-footer-widget">								
+								<div class="footer-line">
+									<div class="border-bottom"></div>
+								</div>
+							</div>
+							<div class="hm-foot-icon">
+								<ul>
+									<li><a th:href="${dataObj.info.social.facebook}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li><!--/li-->									
+									<li><a th:href="${dataObj.info.social.instagram}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li><!--/li-->	
+									<li><a th:href="${dataObj.info.social.google}" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li><!--/li-->								
+								</ul>
+							</div>
+						</div>
+				  </div>
+			 </div>
+		</section>
+		<!--hm-footer end-->
+		
+		<!-- footer-copyright start -->
+		<footer class="footer-copyright">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="foot-copyright pull-left">
+							<p>
+								&copy; All Rights Reserved. Designed and Developed by
+							 	<a href="https://www.lldtek.org" target="_blank">LLDTEK</a>
+							</p>
+						</div><!--/.foot-copyright-->
+					</div><!--/.col-->					
+				</div><!--/.row-->
+				<div id="scroll-Top">
+					<i class="fa fa-angle-double-up return-to-top" id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+				</div><!--/.scroll-Top-->
+			</div><!-- /.container-->
+
+		</footer><!-- /.footer-copyright-->
+		<!-- footer-copyright end -->
+
+
+
+
+		<!-- jaquery link -->
+
+		<script th:src="@{${template + '/js/jquery.js'}}"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        
+        <!--modernizr.min.js-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		
+		
+		<!--bootstrap.min.js-->
+        <script type="text/javascript" th:src="@{${template + '/js/bootstrap.min.js'}}"></script>
+		
+		<!-- bootsnav js -->
+		<script th:src="@{${template + '/js/bootsnav.js'}}"></script>
+		
+		<!-- for manu -->
+		<script th:src="@{${template + '/js/jquery.hc-sticky.min.js'}}" type="text/javascript"></script>
+
+		
+		<!-- vedio player js -->
+		<script th:src="@{${template + '/js/jquery.magnific-popup.min.js'}}"></script>
+
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+		
+		<!--owl.carousel.js-->
+        <script type="text/javascript" th:src="@{${template + '/js/owl.carousel.min.js'}}"></script>
+
+		<!-- counter js -->
+		<script th:src="@{${template + '/js/jquery.counterup.min.js'}}"></script>
+		<script th:src="@{${template + '/js/waypoints.min.js'}}"></script>
+
+		
+        
+        <!--Custom JS-->
+        <script type="text/javascript" th:src="@{${template + '/js/jak-menusearch.js'}}"></script>
+        <script type="text/javascript" th:src="@{${template + '/js/custom.js'}}"></script>
+		
+
+    </body>
+	
+</html>
